@@ -23,6 +23,7 @@ brew tap spring-io/tap
 apps=(
     iterm2
     pyenv
+    pyenv-virtualenv
     poetry
     tfenv
     awscli
@@ -80,7 +81,7 @@ if ! grep -wq "pyenv init -" ~/.zshrc; then
     echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
     echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
     echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-    echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
+    echo 'if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi' >> ~/.zshrc
 fi
 PYTHON_VERSION="3.11.5"
 print_green "Installing python $PYTHON_VERSION and setting as default"
