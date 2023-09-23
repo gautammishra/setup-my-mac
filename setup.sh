@@ -51,9 +51,15 @@ if [ -d "~/.oh-my-zsh" ]; then
 fi
 
 # Install PowerLevel10k
-if [ ! -f "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" ] && [ ! -d "~/.oh-my-zsh/custom/themes/powerlevel10k"]; then
+if [[ ! -f "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" ]] && [[ ! -d "~/.oh-my-zsh/custom/themes/powerlevel10k" ]]; then
     brew install powerlevel10k
-    echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
+    cat >>~/.zshrc <<EOL
+
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run \`p10k configure\` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+EOL
 fi
 
 if test -f ~/.p10k.zsh; then
