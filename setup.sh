@@ -57,6 +57,14 @@ if [ -d "~/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+# Install Oh-My-Zsh Plugins
+if  [[ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]]; then
+    git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+fi
+if  [[ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]]; then
+    git clone  --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+fi
+
 # Install PowerLevel10k
 if [[ ! -f "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" ]] && [[ ! -d "~/.oh-my-zsh/custom/themes/powerlevel10k" ]]; then
     brew install powerlevel10k
@@ -72,7 +80,7 @@ if test -f ~/.zshrc; then
     print_green "Replacing ~/.zshrc. Old config stored at \$TMPDIR/.zshrc.backup"
     mv ~/.zshrc $TMPDIR/.zshrc.backup
 fi
-cp ~/.zshrc ~/
+cp .zshrc ~/
 
 # brew tap homebrew/cask-fonts
 # brew install font-hack-nerd-font
