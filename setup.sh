@@ -60,10 +60,6 @@ fi
 # Install PowerLevel10k
 if [[ ! -f "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" ]] && [[ ! -d "~/.oh-my-zsh/custom/themes/powerlevel10k" ]]; then
     brew install powerlevel10k
-    echo '\n# Powerlevel10k configuration' >> ~/.zshrc
-    echo 'source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
-    echo '\n# To customize prompt, run \`p10k configure\` or edit ~/.p10k.zsh.' >> ~/.zshrc
-    echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc
 fi
 
 if test -f ~/.p10k.zsh; then
@@ -72,17 +68,16 @@ if test -f ~/.p10k.zsh; then
 fi
 cp .p10k.zsh ~/
 
+if test -f ~/.zshrc; then
+    print_green "Replacing ~/.zshrc. Old config stored at \$TMPDIR/.zshrc.backup"
+    mv ~/.zshrc $TMPDIR/.zshrc.backup
+fi
+cp ~/.zshrc ~/
+
 # brew tap homebrew/cask-fonts
 # brew install font-hack-nerd-font
 
-# Configure PyEnv and install Python
-if ! grep -wq "pyenv init -" ~/.zshrc; then
-    echo '\n# PyEnv Configuration' >> ~/.zshrc
-    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
-    echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-    echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-    echo 'if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi' >> ~/.zshrc
-fi
+# Install Python
 PYTHON_VERSION="3.11.5"
 print_green "Installing python $PYTHON_VERSION and setting as default"
 pyenv install -s $PYTHON_VERSION
