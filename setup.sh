@@ -97,6 +97,8 @@ casks=(
     nordvpn
     logi-options-plus
     microsoft-office
+    whatsapp
+    notion
 )
 brew install --cask ${casks[@]}
 

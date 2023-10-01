@@ -84,6 +84,7 @@ plugins=(
   docker
   zsh-syntax-highlighting
   iterm2
+  common-aliases
 )
 
 source $ZSH/oh-my-zsh.sh
