@@ -29,6 +29,7 @@ apps=(
     awscli
     wget
     jq
+    xq
     git
     tree
     spring-boot
