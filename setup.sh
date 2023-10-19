@@ -89,7 +89,7 @@ cp .zshrc ~/
 # brew install font-hack-nerd-font
 
 # Install Python
-PYTHON_VERSION="3.11.5"
+PYTHON_VERSION="3.12.0"
 print_green "Installing python $PYTHON_VERSION and setting as default"
 pyenv install -s $PYTHON_VERSION
 pyenv global $PYTHON_VERSION
@@ -102,6 +102,7 @@ casks=(
     microsoft-office
     whatsapp
     notion
+    spotify
 )
 brew install --cask ${casks[@]}
 
@@ -111,6 +112,8 @@ code --install-extension hashicorp.terraform
 code --install-extension vscjava.vscode-maven
 code --install-extension vscjava.vscode-spring-initializr
 code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-vscode-remote.remote-containers
+code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
 code --install-extension ms-python.python
 
 # Remove Chrome Apps
