@@ -33,6 +33,8 @@ apps=(
     git
     tree
     spring-boot
+    openjdk
+    maven
 )
 brew install ${apps[@]}
 
