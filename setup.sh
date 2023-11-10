@@ -77,13 +77,13 @@ if test -f ~/.p10k.zsh; then
     print_green "Replacing ~/.p10k.zsh. Old config stored at \$TMPDIR/.p10k.zsh.backup"
     mv ~/.p10k.zsh $TMPDIR/.p10k.zsh.backup
 fi
-cp .p10k.zsh ~/
+curl -o ~/.p10k.zsh https://raw.githubusercontent.com/gautammishra/setup-my-mac/main/.p10k.zsh
 
 if test -f ~/.zshrc; then
     print_green "Replacing ~/.zshrc. Old config stored at \$TMPDIR/.zshrc.backup"
     mv ~/.zshrc $TMPDIR/.zshrc.backup
 fi
-cp .zshrc ~/
+curl -o ~/.zshrc https://raw.githubusercontent.com/gautammishra/setup-my-mac/main/.zshrc
 
 # brew tap homebrew/cask-fonts
 # brew install font-hack-nerd-font
