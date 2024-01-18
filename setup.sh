@@ -35,6 +35,9 @@ apps=(
     spring-boot
     openjdk
     maven
+    fx
+    yh
+    asitop
 )
 brew install ${apps[@]}
 
@@ -123,3 +126,4 @@ rm -rf ~/Applications/Chrome\ Apps.localized/*
 print_green "Setting Defaults"
 defaults write com.apple.finder ShowStatusBar -bool true            # Finder: Show status bar
 defaults write com.apple.finder ShowPathbar -bool true              # Finder: Show path bar
+defaults write com.apple.dock show-recents -bool false              # Dock: Don't show suggested/recent apps
